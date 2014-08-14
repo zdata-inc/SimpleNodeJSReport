@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>rts.node demo</title>
+        <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; background-color: #002b36;}
+            h1 { color: #d33682; }
+            body { font: 13px Helvetica, Arial; }
+            #messages { list-style-type: none; margin: 0; padding: 0; }
+            #messages li { padding: 5px 10px; }
+            #messages li:nth-child(even) { color: #6c71c4; }
+            #messages li:nth-child(odd) { color: #268bd2; }
+        </style>
+    </head>
+    <body>
+        <h1>Real Time Streaming</h1>
+        <ul id="messages"></ul>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <script>
+            var socket = io();
+            socket.on('post data', function (data) {
+                $('#messages').append($('<li>').text(data));
+            });
+        </script>
+    </body>
+</html>
